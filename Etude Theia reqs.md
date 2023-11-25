@@ -87,9 +87,62 @@ Redirige vers la page d'accueil des examens en réinitialisant les paramètres d
 ### GET `/learning/exam/access/XXXXXX`
 #### Paramètres :
 
+---
+
+## Page d'examen (https://elffe.theia.fr/playtest/`XXXXXX`/`YYYYYYYY`)
 
 
 
+---
 
+## Requête de sélection d'une réponse (	https://elffe.theia.fr/playtest/validateandanswer/`XXXXXXX`/`YYYYYY`)
+
+### POST `/playtest/validateandanswer/XXXXXXX/YYYYYY`
+
+#### Paramètres de l'url :
+
+---
+
+Nom | Type | Description
+--- | --- | ---
+`XXXXXXX` | Integer | `L'ID de l'examen`
+`YYYYYY` | Integer | `L'ID de la question`
+
+#### Paramètres :
+
+---
+
+Nom | Type | Description
+--- | --- | ---
+`numeric_responses` | Object ({}) | `Les réponses aux questions`
+`pending` | Boolean | `Si l'examen est en attente`
+`synched` | Boolean | `Si l'examen est synchronisé`
+`question_state` | Integer | `Le status de la question`
+
+### Valeurs possibles pour `question_state` :
+
+Valeur | Description
+--- | ---
+`0` | Aucune réponse
+`1` | Réponse en cours
+`2` | Réponse validée
+
+### Valeurs possibles pour `numeric_responses` :
+
+Valeur | Description
+--- | ---
+`"XXXXXXX"` | `L'ID de la question`
+`"YYYYYY"` | `La réponse à la question`
+
+### Réponse :
+
+> Code : 200
+
+### ***Réponse*** :
+
+```json
+{
+    "success":true
+}
 
 
